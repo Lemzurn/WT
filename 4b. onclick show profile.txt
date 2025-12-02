@@ -1,0 +1,18 @@
+<html>
+<body>
+    <button onclick="show()">Show Profile</button>
+    <div id="profile" style="display:none">
+        <h3>Hobbies</h3>
+        <ul><li>Coding</li><li>Reading</li></ul>
+        <img src="me.jpg" width="100" alt="me">
+        <table border="1">
+            <tr><td>Degree</td><td>B.Tech</td></tr>
+        </table>
+    </div>
+    <script>
+        function show() {
+            document.getElementById('profile').style.display = "block";
+        }
+    </script>
+</body>
+</html>

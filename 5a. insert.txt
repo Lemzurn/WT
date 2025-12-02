@@ -1,0 +1,9 @@
+<?php
+$conn = new mysqli("localhost", "root", "", "testdb");
+if ($conn->query("INSERT INTO users (name, email, phone) VALUES ('John', 'j@test.com', '123')") === TRUE) {
+    echo "Success";
+} else {
+    echo "Error: " . $conn->error;
+}
+$conn->close();
+?>

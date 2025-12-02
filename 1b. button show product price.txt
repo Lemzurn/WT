@@ -1,0 +1,18 @@
+<html>
+<body>
+    <button onclick="show('Mobile', 500, 'mobile.jpg')">Mobile</button>
+    <button onclick="show('Laptop', 1200, 'laptop.jpg')">Laptop</button>
+    <button onclick="show('Headphones', 150, 'headphone.jpg')">Headphones</button>
+
+    <div id="display"></div>
+
+    <script>
+        function show(name, price, img) {
+            document.getElementById('display').innerHTML = 
+                "<h3>" + name + "</h3>" +
+                "<p>Price: " + price + "</p>" +
+                "<img src='" + img + "' width='100' alt='product image'>";
+        }
+    </script>
+</body>
+</html>

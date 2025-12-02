@@ -1,0 +1,21 @@
+<html>
+<body>
+    <ul>
+        <li>Starters<ul><li>Soup</li><li>Salad</li></ul></li>
+        <li>Main Course<ul><li>Burger</li><li>Pizza</li></ul></li>
+    </ul>
+    <img src="food.jpg" width="100" alt="food">
+    <table border="1">
+        <tr><th>Item</th><th>Select</th></tr>
+        <tr><td>Burger $10</td><td><input type="radio" name="f" value="Burger"></td></tr>
+        <tr><td>Pizza $12</td><td><input type="radio" name="f" value="Pizza"></td></tr>
+    </table>
+    <button onclick="order()">Submit</button>
+    <p id="msg"></p>
+    <script>
+        function order() {
+            document.getElementById('msg').innerText = "Welcome! Order placed.";
+        }
+    </script>
+</body>
+</html>

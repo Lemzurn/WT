@@ -1,0 +1,26 @@
+import javax.xml.parsers.*;
+import org.xml.sax.*;
+import org.xml.sax.helpers.DefaultHandler;
+
+public class SaxEmailParser {
+    public static void main(String[] args) {
+        try {
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser saxParser = factory.newSAXParser();
+
+            DefaultHandler handler = new DefaultHandler() {
+                boolean bEmail = false;
+                public void startElement(String u, String l, String q, Attributes a) {
+                    if (q.equalsIgnoreCase("email")) bEmail = true;
+                }
+                public void characters(char ch[], int start, int length) {
+                    if (bEmail) {
+                        System.out.println("Email: " + new String(ch, start, length));
+                        bEmail = false;
+                    }
+                }
+            };
+            saxParser.parse("users.xml", handler);
+        } catch (Exception e) { e.printStackTrace(); }
+    }
+}

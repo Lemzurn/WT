@@ -1,0 +1,32 @@
+import javax.xml.parsers.*;
+import org.w3c.dom.*;
+import java.io.*;
+
+public class DomParserDemo {
+    public static void main(String[] args) {
+        try {
+            File inputFile = new File("users.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
+
+            System.out.println("Root: " + doc.getDocumentElement().getNodeName());
+            NodeList nList = doc.getElementsByTagName("user");
+
+            for (int i = 0; i < nList.getLength(); i++) {
+                Node nNode = nList.item(i);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element e = (Element) nNode;
+                    System.out.println("ID: " + e.getElementsByTagName("id").item(0).getTextContent());
+                    System.out.println("Name: " + e.getElementsByTagName("name").item(0).getTextContent());
+                    System.out.println("Email: " + e.getElementsByTagName("email").item(0).getTextContent());
+                    System.out.println("Phone: " + e.getElementsByTagName("phone").item(0).getTextContent());
+                    System.out.println("-----------------");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

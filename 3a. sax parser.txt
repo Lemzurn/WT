@@ -1,0 +1,33 @@
+import javax.xml.parsers.*; // For SAXParser, SAXParserFactory
+import org.xml.sax.*;       // For Attributes, SAXException
+import org.xml.sax.helpers.*; // For DefaultHandler
+
+public class SaxParserDemo {
+    public static void main(String[] args) {
+        try {
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser saxParser = factory.newSAXParser();
+
+            DefaultHandler handler = new DefaultHandler() {
+                boolean bId = false, bName = false, bEmail = false, bPhone = false;
+
+                public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+                    if (qName.equalsIgnoreCase("id")) bId = true;
+                    if (qName.equalsIgnoreCase("name")) bName = true;
+                    if (qName.equalsIgnoreCase("email")) bEmail = true;
+                    if (qName.equalsIgnoreCase("phone")) bPhone = true;
+                }
+
+                public void characters(char ch[], int start, int length) throws SAXException {
+                    if (bId) { System.out.println("ID: " + new String(ch, start, length)); bId = false; }
+                    if (bName) { System.out.println("Name: " + new String(ch, start, length)); bName = false; }
+                    if (bEmail) { System.out.println("Email: " + new String(ch, start, length)); bEmail = false; }
+                    if (bPhone) { System.out.println("Phone: " + new String(ch, start, length)); bPhone = false; }
+                }
+            };
+            saxParser.parse("users.xml", handler);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

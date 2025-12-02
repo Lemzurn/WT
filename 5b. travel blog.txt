@@ -1,0 +1,26 @@
+<html>
+<body>
+    User: <input type="text" id="user">
+    Pass: <input type="password" id="pass">
+    <button onclick="login()">Login</button>
+    <div id="blog" style="display:none">
+        <div>Home | Packages | Contact</div>
+        <br>
+        <img src="place1.jpg" width="100" alt="place">
+        <table border="1">
+            <tr><td>Paris</td><td>$1000</td></tr>
+        </table>
+    </div>
+    <script>
+        function login() {
+            var u = document.getElementById("user").value;
+            var p = document.getElementById("pass").value;
+            if (u !== "" && p.length > 8) {
+                document.getElementById("blog").style.display = "block";
+            } else {
+                alert("Invalid details");
+            }
+        }
+    </script>
+</body>
+</html>

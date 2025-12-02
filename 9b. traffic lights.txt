@@ -1,0 +1,14 @@
+<html>
+<body>
+    <button onclick="sig('STOP')">Red</button>
+    <button onclick="sig('READY')">Yellow</button>
+    <button onclick="sig('GO')">Green</button>
+    
+    <h1 id="msg"></h1>
+    <script>
+        function sig(m) {
+            document.getElementById("msg").innerText = m;
+        }
+    </script>
+</body>
+</html>

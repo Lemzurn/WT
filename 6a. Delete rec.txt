@@ -1,0 +1,9 @@
+<?php
+$conn = new mysqli("localhost", "root", "", "testdb");
+if ($conn->query("DELETE FROM users WHERE name='John'") === TRUE) {
+    echo "Deleted successfully";
+} else {
+    echo "Error";
+}
+$conn->close();
+?>

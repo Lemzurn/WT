@@ -1,0 +1,14 @@
+<?php
+// Ensure source.txt exists before running this!
+$source = "source.txt";
+$dest = "destination.txt";
+
+if (file_exists($source)) {
+    $data = file_get_contents($source);
+    file_put_contents($dest, $data);
+    echo "Success! Content copied from source.txt to destination.txt.<br>";
+    echo "Content copied: " . $data;
+} else {
+    echo "Error: source.txt not found. Please create it in the same folder.";
+}
+?>

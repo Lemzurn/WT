@@ -1,0 +1,9 @@
+<?php
+$conn = new mysqli("localhost", "root", "", "testdb");
+if ($conn->query("UPDATE users SET phone='999' WHERE name='John'") === TRUE) {
+    echo "Updated successfully";
+} else {
+    echo "Error";
+}
+$conn->close();
+?>

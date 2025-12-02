@@ -1,0 +1,44 @@
+import javax.xml.parsers.*;
+import org.w3c.dom.*;
+import java.io.*;
+import java.util.Scanner;
+
+public class UserSearch {
+    public static void main(String[] args) {
+        try {
+            File inputFile = new File("users.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter User ID (e.g., 101): ");
+            String searchId = scanner.nextLine();
+
+            NodeList nList = doc.getElementsByTagName("user");
+            boolean found = false;
+
+            for (int i = 0; i < nList.getLength(); i++) {
+                Node nNode = nList.item(i);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    String uid = eElement.getElementsByTagName("id").item(0).getTextContent();
+
+                    if (uid.equals(searchId)) {
+                        System.out.println("User Found!");
+                        System.out.println("Name: " + eElement.getElementsByTagName("name").item(0).getTextContent());
+                        System.out.println("Email: " + eElement.getElementsByTagName("email").item(0).getTextContent());
+                        System.out.println("Phone: " + eElement.getElementsByTagName("phone").item(0).getTextContent());
+                        found = true;
+                        break;
+                    }
+                }
+            }
+            if (!found) System.out.println("User not found.");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

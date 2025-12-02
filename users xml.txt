@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <id>101</id>
+        <name>Alice</name>
+        <email>alice@example.com</email>
+        <phone>1234567890</phone>
+    </user>
+    <user>
+        <id>102</id>
+        <name>Bob</name>
+        <email>bob@test.com</email>
+        <phone>0987654321</phone>
+    </user>
+    <user>
+        <id>103</id>
+        <name>Charlie</name>
+        <email>charlie@web.com</email>
+        <phone>1122334455</phone>
+    </user>
+    <user>
+        <id>104</id>
+        <name>David</name>
+        <email>david@site.org</email>
+        <phone>5566778899</phone>
+    </user>
+    <user>
+        <id>105</id>
+        <name>Eve</name>
+        <email>eve@world.net</email>
+        <phone>6677889900</phone>
+    </user>
+</users>

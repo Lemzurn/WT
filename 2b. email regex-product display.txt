@@ -1,0 +1,38 @@
+<html>
+<body>
+    Email: <input type="text" id="email">
+    <button onclick="check()">Login</button>
+
+    <div id="content" style="display:none; margin-top:20px;">
+        <h3>Latest Smartphones</h3>
+        <div style="display:flex; gap: 20px;">
+            <div style="border:1px solid #ccc; padding:10px;">
+                <h4>Apple iPhone 15</h4>
+                <p>Specs: A16 Bionic, 128GB, 5G</p>
+                <img src="apple.jpg" width="100" alt="iPhone"><br>
+                <video width="200" controls><source src="apple_promo.mp4" type="video/mp4"></video>
+            </div>
+            <div style="border:1px solid #ccc; padding:10px;">
+                <h4>Samsung Galaxy S23</h4>
+                <p>Specs: Snapdragon 8 Gen 2, 256GB, 120Hz</p>
+                <img src="samsung.jpg" width="100" alt="Galaxy"><br>
+                <video width="200" controls><source src="samsung_promo.mp4" type="video/mp4"></video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function check() {
+            var email = document.getElementById('email').value;
+            // Robust Regex
+            var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+            if (regex.test(email)) {
+                document.getElementById('content').style.display = "block";
+            } else {
+                alert("Invalid Email");
+            }
+        }
+    </script>
+</body>
+</html>

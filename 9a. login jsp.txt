@@ -1,0 +1,17 @@
+<html>
+<body>
+    <form method="post">
+        User: <input name="u"> Pass: <input name="p" type="password">
+        <input type="submit" value="Login">
+    </form>
+    
+    <% 
+        String u = request.getParameter("u");
+        String p = request.getParameter("p");
+        if(u != null && p != null) {
+            if(u.equals("admin") && p.equals("1234")) out.print("Login Successful");
+            else out.print("Invalid Login");
+        }
+    %>
+</body>
+</html>
